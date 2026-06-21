@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🤖 Multi-Threaded Arabic News Scraper & NLP Feature Extractor
 
 An optimized, production-ready Python data pipeline built to concurrently crawl Arabic news articles via XML Sitemaps, perform tailored NLP preprocessing, and compute text readability analytics. 
@@ -99,3 +100,7 @@ Enterprise Integration: Structured the code natively into functional packages (s
 
 📄 License
 This system architecture and code deployment pipelines are completely open-sourced under the MIT License.
+=======
+# arabic-news-classifier
+Arabic news classification using CAMeLBERT transformer. Fine-tuned for multi-class text classification of Arabic news article
+>>>>>>> c0654cd36b23176980c789077f49346637bb00f4
