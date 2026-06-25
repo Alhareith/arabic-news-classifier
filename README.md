@@ -1,4 +1,5 @@
-<p align="center">
+
+  <p align="center">
   <img src="https://raw.githubusercontent.com/Alhareth/arabic-news-scraper/main/assets/logo.png" alt="Arabic News Classifier" width="150">
 </p>
 
@@ -33,15 +34,24 @@
 
 ## ⚡ لمحة سريعة | Overview
 
-| الميزة | التفاصيل التقنية |
-| :--- | :--- |
-| **النموذج اللغوي (Model)** | `CAMeLBERT` (Fine-tuned for multi-class Arabic text classification)[span_0](start_span)[span_0](end_span) |
-| **الأداء (Performance)** | دقة **82.33%** (F1-Macro: **81.56%**)[span_1](start_span)[span_1](end_span) |
-| **حجم البيانات (Dataset)** | **41,435** مقالة إخبارية عربية مستخرجة آلياً وبشكل منقح[span_2](start_span)[span_2](end_span) |
-| **البيئة والتشغيل (Infrastructure)** | معالجة متزامنة متطورة لجمع البيانات + واجهة حيّة تفاعلية عبر `Gradio` |
-| **الترخيص (License)** | MIT مفتوح المصدر بالكامل[span_3](start_span)[span_3](end_span) |
+<div align="right" dir="rtl">
 
-> **🎯 الهدف الاستراتيجي (Core Objective):** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع[span_4](start_span)[span_4](end_span)، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً[span_5](start_span)[span_5](end_span).
+| التفاصيل التقنية | الميزة |
+| :--- | :--- |
+| نموذج لغوي متطور ومُعدَّل لمهام التصنيف متعدد الفئات (`CAMeLBERT`) | **النموذج اللغوي (Model)** |
+| دقة إجمالية تصل إلى **82.33%** بمقياس مكافئ قدره **81.56%** (`F1-Macro`) | **الأداء (Performance)** |
+| **41,435** مقالة إخبارية عربية جُمعت آلياً وخضعت لعمليات تنظيف مكثفة | **حجم البيانات (Dataset)** |
+| خط إنتاج بيانات متزامن وعالي الأداء مدمج مع واجهة مستخدم حية عبر `Gradio` | **البنية والتشغيل (Infrastructure)** |
+| رخصة `MIT` مفتوحة المصدر ومتاحة للاستخدام والتطوير الحر | **الترخيص (License)** |
+
+</div>
+
+<div align="right" dir="rtl">
+
+> **🎯 الهدف الاستراتيجي:** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً.
+
+</div>
+
 
 ## 🚀 Architectural & Engineering Highlights
 
