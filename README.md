@@ -1,9 +1,5 @@
 <p align="center">
-  <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="75" cy="75" r="70" fill="#1a1a2e"/>
-    <text x="75" y="85" font-size="60" text-anchor="middle" fill="#fff">🤖</text>
-    <circle cx="75" cy="75" r="70" fill="none" stroke="#ff5500" stroke-width="3"/>
-  </svg>
+  <img src="https://img.shields.io/badge/🤖-Arabic%20NLP%20Pipeline-ff5500?style=for-the-badge" alt="Arabic News Classifier" width="300">
 </p>
 
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
@@ -16,11 +12,11 @@
   <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
     <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-HuggingFace%20Spaces-ff5500?style=flat-for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
   </a>
-  <a href="https://github.com/Alhareth/arabic-news-scraper/stargazers">
-    <img src="https://img.shields.io/github/stars/Alhareth/arabic-news-scraper?style=flat-for-the-badge&color=yellow&logo=github" alt="Stars">
+  <a href="https://github.com/Alhareith/arabic-news-classifier/stargazers">
+    <img src="https://img.shields.io/github/stars/Alhareith/arabic-news-classifier?style=flat-for-the-badge&color=yellow&logo=github" alt="Stars">
   </a>
-  <a href="https://github.com/Alhareth/arabic-news-scraper/network/members">
-    <img src="https://img.shields.io/github/forks/Alhareth/arabic-news-scraper?style=flat-for-the-badge&color=blue&logo=git" alt="Forks">
+  <a href="https://github.com/Alhareith/arabic-news-classifier/network/members">
+    <img src="https://img.shields.io/github/forks/Alhareith/arabic-news-classifier?style=flat-for-the-badge&color=blue&logo=git" alt="Forks">
   </a>
 </p>
 
@@ -37,17 +33,42 @@
 
 ## ⚡ لمحة سريعة | Overview
 
-<div dir="rtl" align="right">
+<table align="right" dir="rtl" width="100%">
+  <thead>
+    <tr>
+      <th align="right" width="25%">الميزة</th>
+      <th align="right" width="75%">التفاصيل التقنية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>النموذج اللغوي (Model)</b></td>
+      <td>نموذج لغوي متطور ومُعدَّل لمهام التصنيف متعدد الفئات (<code>CAMeLBERT</code>)</td>
+    </tr>
+    <tr>
+      <td><b>الأداء (Performance)</b></td>
+      <td>دقة إجمالية تصل إلى <b>82.33%</b> بمقياس مكافئ قدره <b>81.56%</b> (<code>F1-Macro</code>)</td>
+    </tr>
+    <tr>
+      <td><b>حجم البيانات (Dataset)</b></td>
+      <td><b>41,435</b> مقالة إخبارية عربية جُمعت آلياً وخضعت لعمليات تنظيف مكثفة</td>
+    </tr>
+    <tr>
+      <td><b>البنية والتشغيل (Infrastructure)</b></td>
+      <td>خط إنتاج بيانات متزامن وعالي الأداء مدمج مع واجهة مستخدم حية عبر <code>Gradio</code></td>
+    </tr>
+    <tr>
+      <td><b>الترخيص (License)</b></td>
+      <td>رخصة <code>MIT</code> مفتوحة المصدر ومتاحة للاستخدام والتطوير الحر</td>
+    </tr>
+  </tbody>
+</table>
 
-| التفاصيل التقنية | الميزة |
-|:---|:---|
-| `CAMeLBERT` (مُعدَّل لتصنيف النصوص العربية متعدد الفئات) | **النموذج اللغوي (Model)** |
-| دقة **82.33%** (F1-Macro: **81.56%**) | **الأداء (Performance)** |
-| **41,435** مقالة إخبارية عربية مستخرجة آلياً وبشكل منقح | **حجم البيانات (Dataset)** |
-| معالجة متزامنة متطورة لجمع البيانات + واجهة حيّة تفاعلية عبر `Gradio` | **البيئة والتشغيل (Infrastructure)** |
-| MIT مفتوح المصدر بالكامل | **الترخيص (License)** |
+<br><br><br><br><br><br><br><br><br><br>
 
-> **🎯 الهدف الاستراتيجي (Core Objective):** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً.
+<div align="right" dir="rtl">
+
+> **🎯 الهدف الاستراتيجي:** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً.
 
 </div>
 
