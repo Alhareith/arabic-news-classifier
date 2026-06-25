@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=1:2F81F7,100:0D1117&height=140&section=header"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=1:2F81A7,100:0D1117&height=140&section=header"/>
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
 
 <p align="center">
