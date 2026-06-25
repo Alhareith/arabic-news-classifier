@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/🤖-Arabic%20NLP%20Pipeline-ff5500?style=for-the-badge" alt="Arabic News Classifier" width="300">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGYxNzJhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxZTI5M2I7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhY2NlbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojRjU5RTBCO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNFOEIsQ0M7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjIwMCIgcng9IjE2IiByeT0iMTYiIGZpbGw9InVybCgjZykiIC8+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2FjY2VudCkiIC8+CiAgPHRleHQgeD0iNDAiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNGRkZGRkYiPs2B2YXYrdmD2Kkg2KfZhNix2KzZitipINij2YUg2KfZhNiv2YrYsdioPC90ZXh0PgogIDx0ZXh0IHg9IjQwIiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzk0YTNiOCI+TXVsdGktVGhyZWFkZWQgUGlwZWxpbmUgfCBDQU1lTEJFUlQgZmluZS10dW5lZCAtIDgyJSBGLTEgQWNjdXJhY3k8L3RleHQ+CiAgPHRleHQgeD0iNDAiIHk9IjE0NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjg3Njg2Ij7imIXinIggTkzwn5CwIC0g2KfZhNmF2KfbjCDYp9mE2YXYsdisINio2YbYr9in2YTYqCDYp9mE2YHZiNio2Kk8L3RleHQ+CiAgPGRpdiB4PSI3MDAiIHk9IjUwIj4KICAgIDxjaXJjbGUgY3g9Ijc0MCIgY3k9IjEwMCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNhY2NlbnQpIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuMiIgLz4KICAgIDxjaXJjbGUgY3g9Ijc0MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNhY2NlbnQpIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNCIgLz4KICAgIDx0ZXh0IHg9IjcyNSIgeT0iMTEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9InVybCgjYWNjZW50KSI+4p2k77iP4oG0PC90ZXh0PgogIDwvZGl2PgogIDx0ZXh0IHg9IjQwIiB5PSIxNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzU1NjU3NSI+8J+UgCBHZW5lcmF0ZWQgU1ZHIBCMgSDZiNio2YrYr9in2YQg2YXZhtin2K8g2KfZhNmF2YTYp9mGPC90ZXh0Pgo8L3N2Zz4=" />
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZjhmZmZmO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNlMmU4ZjA7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhY2NlbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojRjU5RTBCO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNEOThEMDc7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjIwMCIgcng9IjE2IiByeT0iMTYiIGZpbGw9InVybCgjZykiIC8+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2FjY2VudCkiIC8+CiAgPHRleHQgeD0iNDAiIHk9IjcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwZjE3MmEiPs2B2YXYrdmD2Kkg2KfZhNix2KzZitipINij2YUg2KfZhNiv2YrYsdioPC90ZXh0PgogIDx0ZXh0IHg9IjQwIiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzNkNGQ1OSI+TXVsdGktVGhyZWFkZWQgUGlwZWxpbmUgfCBDQU1lTEJFUlQgZmluZS10dW5lZCAtIDgyJSBGLTEgQWNjdXJhY3k8L3RleHQ+CiAgPHRleHQgeD0iNDAiIHk9IjE0NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjg3Njg2Ij7imIXinIggTkzwn5CwIC0g2KfZhNmF2KfbjCDYp9mE2YXYsdisINio2YbYr9in2YTYqCDYp9mE2YHZiNio2Kk8L3RleHQ+CiAgPGRpdiB4PSI3MDAiIHk9IjUwIj4KICAgIDxjaXJjbGUgY3g9Ijc0MCIgY3k9IjEwMCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNhY2NlbnQpIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuMiIgLz4KICAgIDxjaXJjbGUgY3g9Ijc0MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNhY2NlbnQpIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNCIgLz4KICAgIDx0ZXh0IHg9IjcyNSIgeT0iMTEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9InVybCgjYWNjZW50KSI+4p2k77iP4oG0PC90ZXh0PgogIDwvZGl2PgogIDx0ZXh0IHg9IjQwIiB5PSIxNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzlhYWE5YSI+8J+UgCBHZW5lcmF0ZWQgU1ZHIBCMgSDZiNio2YrYr9in2YQg2YXZhtin2K8g2KfZhNmF2YTYp9mGPC90ZXh0Pgo8L3N2Zz4=" alt="Arabic News Scraper Banner" width="100%" />
+  </picture>
 </p>
 
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
@@ -74,14 +77,61 @@
 
 
 
-## 🚀 Architectural & Engineering Highlights
+## 🏗️ البنية المعمارية | Architecture
 
-- **High-Performance Concurrency:** Leveraged Python's `ThreadPoolExecutor` to orchestrate non-blocking multi-threaded web requests, maximizing data crawling throughput safely without IP bans.
-- **Resilient Pipeline Design:** Built strict, decoupled error-handling mechanisms and structural logging to handle network timeouts and structural shifts in website architectures.
-- **Robust Text Preprocessing:** Engineered modular regular expressions to sanitize raw Arabic text fields by eliminating URLs, invalid metadata blocks, structural markers, and junk assets inside nested `script` tags.
-- **Statistical NLP Features:** Adapted text analytics frameworks to extract structural counts and compute advanced semantic scores like *Flesch Reading Ease* adapted for Arabic script complexities.
+<div align="right" dir="rtl">
 
----
+يمثل هذا الخط الأنبوبي (Data Pipeline) <b>هندسة فصل مطلق (Decoupled Architecture)</b>. صُممت كل طبقة لتكون مستقلة وقابلة للتوسع دون التأثير على استقرار المنظومة، مما يوضح التركيز على الأداء النظيف (Clean Performance):
+
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="right" width="15%">الطبقة</th>
+      <th align="right" width="20%">المكون</th>
+      <th align="right" width="65%">الوصف التقني والقيمة الهندسية (The "Why")</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>الاستخراج</b></td>
+      <td><code>scraper.py</code></td>
+      <td><b>المعالجة المتزامنة:</b> تم استخدام <code>ThreadPoolExecutor</code> لإرسال طلبات متعددة بالتوازي، مع تأخير عشوائي مبرمج (Jitter).<br><i>الهدف: تعظيم إنتاجية سحب البيانات مع احترام قيود الخوادم المستهدفة لتجنب حظر الـ IP.</i></td>
+    </tr>
+    <tr>
+      <td><b>التنقية</b></td>
+      <td><code>preprocessor.py</code></td>
+      <td><b>الاستخراج الهيكلي (JSON-LD):</b> استهداف النصوص المخبأة في <code>application/ld+json</code> بدلاً من كشط الـ HTML التقليدي العرضة للكسر.<br><i>الهدف: ضمان استقرار خط الإنتاج وسلامة البيانات (Data Integrity) حتى لو تغير تصميم الموقع.</i></td>
+    </tr>
+    <tr>
+      <td><b>الهندسة</b></td>
+      <td><code>feature_extractor.py</code></td>
+      <td><b>المقاييس اللسانية:</b> استخراج إحصائيات نحوية وحساب مقياس <i>Flesch Reading Ease</i> للنصوص العربية.<br><i>الهدف: تزويد النموذج اللغوي بمعالم رياضية (Features) تدعم دقة التصنيف للكلمات المعقدة.</i></td>
+    </tr>
+    <tr>
+      <td><b>التهيئة</b></td>
+      <td><code>config.py</code></td>
+      <td><b>المركزية:</b> فصل الإعدادات الثابتة وبناء نظام تسجيل (Structured Logging) موحد.<br><i>الهدف: تسهيل صيانة المشروع مستقبلاً وتتبع الأخطاء بدقة أثناء تشغيل آلاف الطلبات المتزامنة.</i></td>
+    </tr>
+  </tbody>
+</table>
+
+### 🔄 مخطط تدفق البيانات الأساسي (Core Data Flow)
+
+</div>
+
+```mermaid
+graph LR
+    A[(Sitemap XML)] -->|Concurrent Fetch| B(Scraper<br/>scraper.py)
+    B -->|Raw Extracted Data| C{Preprocessor<br/>preprocessor.py}
+    C -->|Sanitized Text| D(Feature Engineering<br/>feature_extractor.py)
+    D -->|Text & Structural Metrics| E((CAMeLBERT Model<br/>Transformers))
+    E -->|Real-time Inference| F[Gradio UI<br/>app.py]
+
+    style A fill:#e1e4e8,stroke:#333
+    style C fill:#dfd,stroke:#333
+    style E fill:#79c0ff,stroke:#333
+    style F fill:#ff9900,stroke:#333,color:#fff
+
 
 ## 📊 Model Evolution & Metrics (Fine-Tuning)
 
