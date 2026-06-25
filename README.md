@@ -168,20 +168,19 @@ arabic-news-scraper/
 ```
 
 ---
-
 ## ⚡ التشغيل الفوري والإعداد | Zero-Friction Setup
 
 <div align="right" dir="rtl">
 
-لن تحتاج لأكثر من دقيقتين لتشغيل المشروع محلياً. اتبع التسلسل الذهبي التالي (تم استخدام بيئة افتراضية للحفاظ على استقرار الحزم):
-
-<b>🐍 1. استنساخ وتهيئة البيئة (Environment Initialization)</b>
+لن تحتاج لأكثر من **دقيقتين** لتشغيل المشروع محلياً. اتبع التسلسل الذهبي التالي (تم استخدام بيئة افتراضية للحفاظ على استقرار الحزم):
 
 </div>
 
+### 🐍 1. استنساخ وتهيئة البيئة (Environment Initialization)
+
 ```bash
 # استنساخ المستودع
-git clone [https://github.com/Alhareith/arabic-news-scraper.git](https://github.com/Alhareith/arabic-news-scraper.git)
+git clone https://github.com/Alhareith/arabic-news-scraper.git
 cd arabic-news-scraper
 
 # إنشاء وتفعيل بيئة افتراضية (أفضل ممارسة هندسية)
@@ -194,40 +193,27 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+### 🎯 2. سيناريوهات التشغيل العملية (Run Scenarios)
+
 <div align="right" dir="rtl">
 
-<b>🎯 2. سيناريوهات التشغيل العملية (Run Scenarios)</b><br>
 اختر السيناريو المناسب لاحتياجك:
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="right" width="30%">المشهد</th>
-      <th align="left" width="30%">الأمر / الكود</th>
-      <th align="right" width="40%">النتيجة المتوقعة</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>🖥️ <b>تشغيل الواجهة التفاعلية (Gradio)</b></td>
-      <td align="left"><code>python src/app.py</code></td>
-      <td>فتح رابط محلي لاختبار التصنيف الحي للنموذج.</td>
-    </tr>
-    <tr>
-      <td>📡 <b>الاستخدام البرمجي (API Integration)</b></td>
-      <td align="left"><code>python -c "from src..."</code></td>
-      <td>استدعاء دوال السحب والتحليل داخل أنظمة خلفية (Backend).</td>
-    </tr>
-    <tr>
-      <td>🧪 <b>تجربة سريعة (5 مقالات فقط)</b></td>
-      <td align="left"><i>انظر الكود أدناه</i></td>
-      <td>سحب 5 مقالات، تنظيفها، وعرض التحليل اللغوي فوراً.</td>
-    </tr>
-  </tbody>
-</table>
+</div>
 
-<b>💻 3. كود تجريبي جاهز للنسخ (Copy-Paste Ready)</b><br>
-انسخ هذا المقتطف البرمجي في ملف <code>test_run.py</code> لتجربة خط الأنابيب الكامل (سحب + تنظيف + تحليل) فوراً:
+| المشهد | الأمر / الكود | النتيجة المتوقعة |
+| :--- | :--- | :--- |
+| **🖥️ تشغيل الواجهة التفاعلية (Gradio)** | `python src/app.py` | فتح رابط محلي (مثل `http://127.0.0.1:7860`) لاختبار التصنيف الحي للنموذج. |
+| **📡 الاستخدام البرمجي (API Integration)** | `python -c "from src.scraper import ..."` | استدعاء دوال السحب والتحليل داخل أنظمة خلفية (Backend) مباشرة. |
+| **🧪 تجربة سريعة (5 مقالات فقط)** | انظر الكود أدناه | سحب 5 مقالات، تنظيفها، وعرض التحليل اللغوي فوراً دون عناء. |
+
+---
+
+### 💻 3. كود تجريبي جاهز للنسخ (Copy-Paste Ready)
+
+<div align="right" dir="rtl">
+
+انسخ هذا المقتطف البرمجي في ملف `test_run.py` لتجربة خط الأنابيب الكامل (سحب + تنظيف + تحليل) فوراً:
 
 </div>
 
@@ -238,7 +224,7 @@ from src.feature_extractor import compute_text_features
 
 # 1. جلب أحدث 5 روابط مقالات من موقع "سبق" الإخباري
 print("⏳ جاري جلب الروابط...")
-urls = fetch_sitemap_urls("[https://sabq.org/sitemap.xml](https://sabq.org/sitemap.xml)")[:5]
+urls = fetch_sitemap_urls("https://sabq.org/sitemap.xml")[:5]
 
 # 2. تنفيذ السحب المتزامن متعدد الخيوط
 print(f"⏳ جاري سحب {len(urls)} مقالة...")
@@ -251,79 +237,10 @@ if articles:
     
     print("\n✅ تم السحب بنجاح!")
     print(f"📰 العنوان: {first_article.get('title', 'بدون عنوان')}")
-    print(f"📊 عدد الكلمات: {analytics.get('word_count')}")
-    print(f"📈 مؤشر الصعوبة (Flesch): {analytics.get('flesch_score')}")
+    print(f"📊 عدد الكلمات: {analytics.get('word_count', 0)}")
+    print(f"📈 مؤشر الصعوبة (Flesch): {analytics.get('flesch_score', 0)}")
 ```
-
 ---
-
-## 🏁 الخلاصة الهندسية والترخيص | Final Takeaways & License
-
-<div align="right" dir="rtl">
-
-يهدف هذا المشروع إلى تقديم أكثر من مجرد كود؛ إنه نموذج حي لهندسة البيانات الاحترافية (Production-Grade Data Engineering):
-
-* ⚖️ **التزامن المهذب (Polite Concurrency):** تم ضبط `max_workers=10` مع تأخيرات عشوائية (Jitter) لضمان سحب البيانات دون التسبب في حظر الخوادم أو انتهاك سياسات `robots.txt`.
-* 🧩 **جاهزية التوسع (Enterprise Scalability):** الهيكلية المفصولة (Decoupled Modules) تسمح بتغليف المشروع باستخدام `Docker` أو نشره كـ Microservice مع FastAPI دون تعديل النواة.
-* 📜 **الترخيص:** جميع مكونات هذا النظام مفتوحة المصدر بالكامل وتندرج تحت رخصة **MIT License**، مما يمنحك الحرية الكاملة للاستخدام التجاري والأكاديمي.
-
-> 💡 **نصيحة الخبير:** لضمان نجاح تجربة التشغيل، تأكد من أن ملف `requirements.txt` يحتوي على إصدارات محددة (مثل `torch==2.0.1`) لتجنب أي تعارض مستقبلي. كما يُنصح بتشغيل الأمر `python src/app.py` مباشرة بعد التثبيت لاختبار الواجهة قبل الغوص في الكود البرمجي.
-
-</div>
-
-🛠️ Technology Stack
-Core Language: Python 3.10+
-
-Concurrency Engine: Concurrent Futures (ThreadPoolExecutor)
-
-Data Mining: BeautifulSoup4, Requests, XML ElementTree Parsing
-
-NLP & Feature Engineering: NLTK, Textstat, Pandas
-
-Deployment & UI: Hosted live via Gradio on Hugging Face Spaces
-
-⚙️ Execution Sandbox (How to Run)
-Follow these streamlined steps to clone, configure, and execute the production pipeline on your local architecture:
-
-1. Download and Clone the Project
-Clone the repository from GitHub and navigate into the root project directory:
-
-Bash
-git clone [https://github.com/Alhareth/arabic-news-scraper.git](https://github.com/Alhareth/arabic-news-scraper.git)
-cd arabic-news-scraper
-2. Environment Specifications Setup
-Install all required third-party libraries and NLP dependencies written in the standard configuration file using pip:
-
-Bash
-pip install -r requirements.txt
-3. Practical Code Execution Sample
-You can now programmatically import the core pipeline engines directly into any custom script to scrape and extract features dynamically:
-
-Python
-from src.scraper import fetch_sitemap_urls, run_concurrent_pipeline
-from src.feature_extractor import compute_text_features
-
 # 1. Fetch historical article sub-sitemaps dynamically
 target_urls = fetch_sitemap_urls("[https://sabq.org/sitemap.xml](https://sabq.org/sitemap.xml)")[:20]
 
-# 2. Execute the multi-threaded production crawling run (Extracting 20 articles)
-scraped_dataset = run_concurrent_pipeline(target_urls)
-
-# 3. Compute structural NLP metrics on any extracted text sample
-if scraped_dataset:
-    sample_text = scraped_dataset[0]["cleaned_text"]
-    analytics = compute_text_features(sample_text)
-    print("Linguistic Analytics Output:", analytics)
-📝 Key Engineering Takeaways
-polite Scraping Boundaries: Optimized the concurrency workload (max_workers=10) combined with automated random jitter delays to prevent trigger-based firewall blockages.
-
-Deterministic Data Integrity: Mitigated structural text variations by tracking metadata patterns inside JavaScript injection points (application/ld+json), stabilizing data acquisition success rates.
-
-Enterprise Integration: Structured the code natively into functional packages (src/) making it production-ready and fully importable by external applications or backend APIs.
-
-📄 License
-This system architecture and code deployment pipelines are completely open-sourced under the MIT License.
-=======
-# arabic-news-classifier
-Arabic news classification using CAMeLBERT transformer. Fine-tuned for multi-class text classification of Arabic news article
->>>>>>> c0654cd36b23176980c789077f49346637bb00f4
