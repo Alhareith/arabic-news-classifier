@@ -1,48 +1,47 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Alhareth/arabic-news-scraper/main/assets/logo.png" alt="Arabic News Classifier" width="180">
+  <img src="https://raw.githubusercontent.com/Alhareth/arabic-news-scraper/main/assets/logo.png" alt="Arabic News Classifier" width="150">
 </p>
 
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
 
 <p align="center">
-  <strong>نظام استخراج وتصنيف الأخبار العربية باستخدام نماذج لغوية متقدمة</strong>
+  <strong>نظام متكامل لاستخراج وتصنيف الأخبار العربية باستخدام معالجة اللغات الطبيعية ونماذج الـ Transformers</strong>
 </p>
 
 <p align="center">
   <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
-    <img src="https://img.shields.io/badge/🚀_Live_Demo-HuggingFace_Spaces-ff5500?style=for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
+    <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-HuggingFace%20Spaces-ff5500?style=flat-for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
   </a>
   <a href="https://github.com/Alhareth/arabic-news-scraper/stargazers">
-    <img src="https://img.shields.io/github/stars/Alhareth/arabic-news-scraper?style=for-the-badge&color=yellow" alt="Stars">
+    <img src="https://img.shields.io/github/stars/Alhareth/arabic-news-scraper?style=flat-for-the-badge&color=yellow&logo=github" alt="Stars">
   </a>
   <a href="https://github.com/Alhareth/arabic-news-scraper/network/members">
-    <img src="https://img.shields.io/github/forks/Alhareth/arabic-news-scraper?style=for-the-badge&color=blue" alt="Forks">
+    <img src="https://img.shields.io/github/forks/Alhareth/arabic-news-scraper?style=flat-for-the-badge&color=blue&logo=git" alt="Forks">
   </a>
 </p>
- 
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
-  <img src="https://img.shields.io/badge/Transformers-🤗_HuggingFace-yellow?logo=huggingface&logoColor=white" alt="Transformers">
-  <img src="https://img.shields.io/badge/Concurrency-ThreadPoolExecutor-orange" alt="Concurrency">
-  <img src="https://img.shields.io/badge/UI-Gradio-ff5500?logo=gradio&logoColor=white" alt="Gradio">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/Transformers-%F0%9F%A4%97%20HuggingFace-yellow?style=flat" alt="Transformers">
+  <img src="https://img.shields.io/badge/Concurrency-ThreadPoolExecutor-orange?style=flat&logo=cpu" alt="Concurrency">
+  <img src="https://img.shields.io/badge/UI-Gradio%20v6-ff5500?style=flat&logo=gradio&logoColor=white" alt="Gradio">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat" alt="License">
 </p>
 
 ---
 
-## ⚡ لمحة سريعة
+## ⚡ لمحة سريعة | Overview
 
-| الميزة | التفاصيل |
-|:---|:---|
-| **النموذج** | CAMeLBERT مُعدَّل خصيصًا للنصوص العربية |
-| **الأداء** | دقة **82.33%** (F1-Macro: 81.56%) |
-| **حجم البيانات** | 41,435 مقالة عربية |
-| **المنصة** | واجهة تفاعلية مباشرة على Hugging Face Spaces |
-| **الترخيص** | MIT مفتوح المصدر بالكامل |
+| الميزة | التفاصيل التقنية |
+| :--- | :--- |
+| **النموذج اللغوي (Model)** | `CAMeLBERT` (Fine-tuned for multi-class Arabic text classification)[span_0](start_span)[span_0](end_span) |
+| **الأداء (Performance)** | دقة **82.33%** (F1-Macro: **81.56%**)[span_1](start_span)[span_1](end_span) |
+| **حجم البيانات (Dataset)** | **41,435** مقالة إخبارية عربية مستخرجة آلياً وبشكل منقح[span_2](start_span)[span_2](end_span) |
+| **البيئة والتشغيل (Infrastructure)** | معالجة متزامنة متطورة لجمع البيانات + واجهة حيّة تفاعلية عبر `Gradio` |
+| **الترخيص (License)** | MIT مفتوح المصدر بالكامل[span_3](start_span)[span_3](end_span) |
 
-> **الهدف:** تمكين المطورين والباحثين من استخراج وتصنيف الأخبار العربية تلقائيًا بجودة إنتاجية وقابلية للتوسع.
-
+> **🎯 الهدف الاستراتيجي (Core Objective):** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع[span_4](start_span)[span_4](end_span)، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً[span_5](start_span)[span_5](end_span).
 
 ## 🚀 Architectural & Engineering Highlights
 
