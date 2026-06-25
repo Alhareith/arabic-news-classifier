@@ -29,8 +29,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat" alt="License">
 </p>
 
----
-## ⚡ لمحة سريعة | Overview---
+------
 
 ## ⚡ لمحة سريعة | Overview
 
@@ -47,6 +46,7 @@
 > **🎯 الهدف الاستراتيجي (Core Objective):** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً.
 
 </div>
+
 
 
 ## 🚀 Architectural & Engineering Highlights
