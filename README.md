@@ -1,5 +1,4 @@
-
-  <p align="center">
+<p align="center">
   <img src="https://raw.githubusercontent.com/Alhareth/arabic-news-scraper/main/assets/logo.png" alt="Arabic News Classifier" width="150">
 </p>
 
@@ -8,7 +7,7 @@
 <p align="center">
   <strong>نظام متكامل لاستخراج وتصنيف الأخبار العربية باستخدام معالجة اللغات الطبيعية ونماذج الـ Transformers</strong>
 </p>
- 
+
 <p align="center">
   <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
     <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-HuggingFace%20Spaces-ff5500?style=flat-for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
@@ -31,7 +30,6 @@
 </p>
 
 ---
-
 ## ⚡ لمحة سريعة | Overview
 
 <div align="right" dir="rtl">
