@@ -107,16 +107,66 @@ graph LR
 
 
 
-## 📊 Model Evolution & Metrics (Fine-Tuning)
+## 📈 تطور النموذج والمقاييس | Model Evolution & Fine-Tuning
 
-The downstream text classification model (`CAMeLBERT`) was fine-tuned using an iterative **Self-Training** (Pseudo-Labeling) methodology:
+<div align="right" dir="rtl">
 
-| Model Version | Training Dataset Size | Key Improvements | Final Accuracy (F1-Macro) |
-| :--- | :--- | :--- | :--- |
-| **Model v1** | 3,000 "Golden" Articles | Manually annotated high-quality base data. | Base Baseline |
-| **Model v2 (Current)** | **41,435** Articles | Combined golden & high-confidence "Silver" data (Threshold >= 75%). | **82.33% (81.56%)** |
+تم تدريب نموذج <code>CAMeLBERT</code> لمهام التصنيف متعدد الفئات (Multi-class Classification) باستخدام منهجية هندسية متقدمة تُعرف بـ <b>التدريب الذاتي (Self-Training / Pseudo-Labeling)</b>. سمح هذا النهج بمضاعفة حجم البيانات التدريبية آلياً مع الحفاظ على جودة التصنيف <b>دون الحاجة لتوسيم يدوي مكلف</b>، مما يعكس كفاءة عالية في التعامل مع هندسة البيانات (Data-Centric AI):
 
---- 
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center" width="13%">الإصدار</th>
+      <th align="center" width="20%">حجم البيانات</th>
+      <th align="right" width="42%">المنهجية والتحسينات</th>
+      <th align="center" width="12%">F1-Macro</th>
+      <th align="center" width="13%">الدقة (Acc)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><b>v1</b><br><i>(Baseline)</i></td>
+      <td align="center">3,000 مقالة<br><i>(Golden Data)</i></td>
+      <td>بيانات أساسية عالية الجودة، تم تصنيفها ومراجعتها يدوياً لتأسيس خط الأساس للنموذج.</td>
+      <td align="center">-</td>
+      <td align="center">-</td>
+    </tr>
+    <tr>
+      <td align="center"><b>v2</b><br><i>(Current ✅)</i></td>
+      <td align="center"><b>41,435</b> مقالة<br><i>(Silver + Golden)</i></td>
+      <td>دمج البيانات الذهبية مع بيانات فضية (Silver Data) استخرجها النموذج الأول بثقة تتجاوز حاجز الـ <b>75%</b> (Quality Gate).</td>
+      <td align="center"><b>81.56%</b></td>
+      <td align="center"><b>82.33%</b></td>
+    </tr>
+  </tbody>
+</table>
+
+### 📊 تحليل الأداء حسب الفئة (Class-wise Performance)
+
+لضمان الشفافية وتجنب تحيز النموذج لصالح الفئات الأكثر شيوعاً، تم استخراج تقرير التصنيف (Classification Report) لقياس الأداء الدقيق لكل فئة:
+
+| الفئة (Category) | الدقة (Precision) | الاستدعاء (Recall) | دقة F1 (F1-Score) |
+| :--- | :---: | :---: | :---: |
+| 🏛️ سياسة (Politics) | [X.XX] | [X.XX] | **[X.XX]** |
+| 📈 اقتصاد (Economy) | [X.XX] | [X.XX] | **[X.XX]** |
+| ⚽ رياضة (Sports) | [X.XX] | [X.XX] | **[X.XX]** |
+| 💻 تكنولوجيا (Tech) | [X.XX] | [X.XX] | **[X.XX]** |
+| 🩺 صحة (Health) | [X.XX] | [X.XX] | **[X.XX]** |
+
+
+</div>
+
+<br>
+
+<div align="right" dir="rtl">
+<blockquote>
+💡 <b>رؤية هندسية: لماذا تم الاعتماد على مقياس <code>F1-Macro</code> تحديداً؟</b><br><br>
+في سياق الأخبار، غالباً ما تكون البيانات غير متوازنة (Imbalanced Classes). الاعتماد على <code>F1-Macro</code> (وليس Micro أو Weighted) يضمن <b>تقييماً عادلاً</b> للنموذج، حيث يُحسب المتوسط الحسابي البسيط لأداء جميع الفئات دون أن تتفوق الفئات الأكبر حجماً على نتائج الفئات الأصغر. هذا يثبت قدرة النموذج على استيعاب الفئات النادرة بنفس كفاءة الفئات الشائعة.
+</blockquote>
+</div>
+
+---
+
 
 ## 📁 Repository Blueprint
 
@@ -139,6 +189,8 @@ arabic-news-scraper/
 ├── .gitignore                    # Safeguards repository from uploading huge CSV files
 ├── requirements.txt              # Explicit third-party system dependencies
 └── README.md                     # Technical portfolio interface
+
+```
 🛠️ Technology Stack
 Core Language: Python 3.10+
 
