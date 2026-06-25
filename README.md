@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>نظام متكامل لاستخراج وتصنيف الأخبار العربية باستخدام معالجة اللغات الطبيعية ونماذج الـ Transformers</strong>
-</p> 
+</p>  
    
 <p align="center">
   <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
@@ -153,7 +153,7 @@ graph LR
 </div>
 
 ```text
-arabic-news-scraper/
+arabic-news-classifier/
 ├── 📦 src/                         # ❖ النواة الهندسية (Core Engine)
 │   ├── 🖥️ app.py                   # واجهة Gradio التفاعلية (متصلة بـ Hugging Face Hub)
 │   ├── ⚙️ config.py                # الإعدادات المركزية ونظام الـ Logging الهيكلي
@@ -180,8 +180,8 @@ arabic-news-scraper/
 
 ```bash
 # استنساخ المستودع
-git clone https://github.com/Alhareith/arabic-news-scraper.git
-cd arabic-news-scraper
+git clone https://github.com/Alhareith/arabic-news-classifier.git
+cd arabic-news-classifier
 
 # إنشاء وتفعيل بيئة افتراضية (أفضل ممارسة هندسية)
 python -m venv venv
