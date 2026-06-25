@@ -1,7 +1,4 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Alhareith/arabic-news-scraper/main/assets/banner.svg?raw=true" alt="Arabic News Scraper Banner" width="100%">
-</p>
- 
+<img src="https://capsule-render.vercel.app/api?type=waving&color=1:2F81F7,100:0D1117&height=140&section=header"/>
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
 
 <p align="center">
