@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/Alhareith/arabic-news-scraper/main/assets/banner.svg?raw=true" alt="Arabic News Scraper Banner" width="100%">
 </p>
-
+ 
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
 
 <p align="center">
@@ -73,47 +73,22 @@
 </div>
 
 
-
 ## 🏗️ البنية المعمارية | Architecture
 
 <div align="right" dir="rtl">
 
-يمثل هذا الخط الأنبوبي (Data Pipeline) <b>هندسة فصل مطلق (Decoupled Architecture)</b>. صُممت كل طبقة لتكون مستقلة وقابلة للتوسع دون التأثير على استقرار المنظومة، مما يوضح التركيز على الأداء النظيف (Clean Performance):
+يتميز خط الإنتاج بتصميم هندسي منفصل (Decoupled Pipeline) يضمن الاستقرار، سرعة المعالجة، والقابلية للتوسع:
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="right" width="15%">الطبقة</th>
-      <th align="right" width="20%">المكون</th>
-      <th align="right" width="65%">الوصف التقني والقيمة الهندسية (The "Why")</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>الاستخراج</b></td>
-      <td><code>scraper.py</code></td>
-      <td><b>المعالجة المتزامنة:</b> تم استخدام <code>ThreadPoolExecutor</code> لإرسال طلبات متعددة بالتوازي، مع تأخير عشوائي مبرمج (Jitter).<br><i>الهدف: تعظيم إنتاجية سحب البيانات مع احترام قيود الخوادم المستهدفة لتجنب حظر الـ IP.</i></td>
-    </tr>
-    <tr>
-      <td><b>التنقية</b></td>
-      <td><code>preprocessor.py</code></td>
-      <td><b>الاستخراج الهيكلي (JSON-LD):</b> استهداف النصوص المخبأة في <code>application/ld+json</code> بدلاً من كشط الـ HTML التقليدي العرضة للكسر.<br><i>الهدف: ضمان استقرار خط الإنتاج وسلامة البيانات (Data Integrity) حتى لو تغير تصميم الموقع.</i></td>
-    </tr>
-    <tr>
-      <td><b>الهندسة</b></td>
-      <td><code>feature_extractor.py</code></td>
-      <td><b>المقاييس اللسانية:</b> استخراج إحصائيات نحوية وحساب مقياس <i>Flesch Reading Ease</i> للنصوص العربية.<br><i>الهدف: تزويد النموذج اللغوي بمعالم رياضية (Features) تدعم دقة التصنيف للكلمات المعقدة.</i></td>
-    </tr>
-    <tr>
-      <td><b>التهيئة</b></td>
-      <td><code>config.py</code></td>
-      <td><b>المركزية:</b> فصل الإعدادات الثابتة وبناء نظام تسجيل (Structured Logging) موحد.<br><i>الهدف: تسهيل صيانة المشروع مستقبلاً وتتبع الأخطاء بدقة أثناء تشغيل آلاف الطلبات المتزامنة.</i></td>
-    </tr>
-  </tbody>
-</table>
-### 🔄 مخطط تدفق البيانات الأساسي (Core Data Flow)
+| الطبقة | المكون | الوصف التقني |
+|:---|:---|:---|
+| **الاستخراج** | `scraper.py` | معالجة متزامنة عبر `ThreadPoolExecutor` (10 وحدات) مع تأخير عشوائي لتجنب حظر الـ IP |
+| **التنقية** | `preprocessor.py` | استخراج هيكلي ذكي من `JSON-LD` + تنظيف نصوص عربية بـ RegEx مخصص |
+| **الهندسة** | `feature_extractor.py` | مقاييس لسانية (Flesch-Kincaid مُعَرَّب) + إحصائيات توكنز عبر NLTK |
+| **التهيئة** | `config.py` | إعدادات مركزية + تسجيل موحد + معالجة أخطاء شاملة |
 
 </div>
+
+### 🔄 مخطط تدفق البيانات الأساسي (Core Data Flow)
 
 ```mermaid
 graph LR
