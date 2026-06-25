@@ -144,28 +144,133 @@ graph LR
 
 
 ## 📁 Repository Blueprint
+## 📁 الهيكلية المعمارية للمشروع | Repository Blueprint
+
+<div align="right" dir="rtl">
+
+صُمم هذا المستودع بهندسة **الكود النظيف (Clean Architecture)** ليُعامَل كحزمة بايثون قابلة للاستيراد (Installable Package)، مفصولة تماماً عن بيئات التجارب (Notebooks) والبيانات الضخمة:
+
+</div>
 
 ```text
 arabic-news-scraper/
+├── 📦 src/                         # ❖ النواة الهندسية (Core Engine)
+│   ├── 🖥️ app.py                   # واجهة Gradio التفاعلية (متصلة بـ Hugging Face Hub)
+│   ├── ⚙️ config.py                # الإعدادات المركزية ونظام الـ Logging الهيكلي
+│   ├── 🕸️ scraper.py               # محرك السحب المتزامن (ThreadPoolExecutor + Jitter)
+│   ├── 🧹 preprocessor.py          # خوارزميات التنقية واستخراج JSON-LD الذكي
+│   └── 📐 feature_extractor.py     # استخراج الخصائص اللسانية (NLP Metrics & Readability)
 │
-├── src/                          # Core source code modules
-│   ├── __init__.py               # Initializes src as a Python package
-│   ├── config.py                 # Infrastructure presets & localized logging hooks
-│   ├── scraper.py                # Multi-threaded crawling nodes & network routines
-│   ├── preprocessor.py           # Algorithmic text cleaning & markup isolation
-│   └── feature_extractor.py      # NLP feature engineering & mathematical metrics
-│
-├── notebooks/                    # Developmental logs & historical Colab research
-│   └── exploration_and_demo.ipynb
-│
-├── data/                         # Local data sandbox (Protected via .gitignore)
-│   └── .gitkeep
-│
-├── .gitignore                    # Safeguards repository from uploading huge CSV files
-├── requirements.txt              # Explicit third-party system dependencies
-└── README.md                     # Technical portfolio interface
-
+├── 📓 notebooks/                   # سجلات التطوير وتجارب EDA (تحليل استكشافي)
+├── 💾 data/                        # بيئة تخزين البيانات (مستثناة من Git للحفاظ على الحجم)
+├── 📋 requirements.txt             # الاعتماديات البرمجية (مثبتة بدقة بالإصدارات)
+└── 📄 README.md                    # التوثيق المعماري الشامل (هذا الملف)
 ```
+
+---
+
+## ⚡ التشغيل الفوري والإعداد | Zero-Friction Setup
+
+<div align="right" dir="rtl">
+
+لن تحتاج لأكثر من دقيقتين لتشغيل المشروع محلياً. اتبع التسلسل الذهبي التالي (تم استخدام بيئة افتراضية للحفاظ على استقرار الحزم):
+
+<b>🐍 1. استنساخ وتهيئة البيئة (Environment Initialization)</b>
+
+</div>
+
+```bash
+# استنساخ المستودع
+git clone [https://github.com/Alhareith/arabic-news-scraper.git](https://github.com/Alhareith/arabic-news-scraper.git)
+cd arabic-news-scraper
+
+# إنشاء وتفعيل بيئة افتراضية (أفضل ممارسة هندسية)
+python -m venv venv
+source venv/bin/activate   # لنظام Linux / Mac
+# .\venv\Scripts\activate  # لنظام Windows (CMD)
+
+# تثبيت جميع الاعتماديات دفعة واحدة
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+<div align="right" dir="rtl">
+
+<b>🎯 2. سيناريوهات التشغيل العملية (Run Scenarios)</b><br>
+اختر السيناريو المناسب لاحتياجك:
+
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="right" width="30%">المشهد</th>
+      <th align="left" width="30%">الأمر / الكود</th>
+      <th align="right" width="40%">النتيجة المتوقعة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🖥️ <b>تشغيل الواجهة التفاعلية (Gradio)</b></td>
+      <td align="left"><code>python src/app.py</code></td>
+      <td>فتح رابط محلي لاختبار التصنيف الحي للنموذج.</td>
+    </tr>
+    <tr>
+      <td>📡 <b>الاستخدام البرمجي (API Integration)</b></td>
+      <td align="left"><code>python -c "from src..."</code></td>
+      <td>استدعاء دوال السحب والتحليل داخل أنظمة خلفية (Backend).</td>
+    </tr>
+    <tr>
+      <td>🧪 <b>تجربة سريعة (5 مقالات فقط)</b></td>
+      <td align="left"><i>انظر الكود أدناه</i></td>
+      <td>سحب 5 مقالات، تنظيفها، وعرض التحليل اللغوي فوراً.</td>
+    </tr>
+  </tbody>
+</table>
+
+<b>💻 3. كود تجريبي جاهز للنسخ (Copy-Paste Ready)</b><br>
+انسخ هذا المقتطف البرمجي في ملف <code>test_run.py</code> لتجربة خط الأنابيب الكامل (سحب + تنظيف + تحليل) فوراً:
+
+</div>
+
+```python
+# test_run.py
+from src.scraper import fetch_sitemap_urls, run_concurrent_pipeline
+from src.feature_extractor import compute_text_features
+
+# 1. جلب أحدث 5 روابط مقالات من موقع "سبق" الإخباري
+print("⏳ جاري جلب الروابط...")
+urls = fetch_sitemap_urls("[https://sabq.org/sitemap.xml](https://sabq.org/sitemap.xml)")[:5]
+
+# 2. تنفيذ السحب المتزامن متعدد الخيوط
+print(f"⏳ جاري سحب {len(urls)} مقالة...")
+articles = run_concurrent_pipeline(urls)
+
+# 3. استخراج الميزات اللغوية لأول مقالة
+if articles:
+    first_article = articles[0]
+    analytics = compute_text_features(first_article["cleaned_text"])
+    
+    print("\n✅ تم السحب بنجاح!")
+    print(f"📰 العنوان: {first_article.get('title', 'بدون عنوان')}")
+    print(f"📊 عدد الكلمات: {analytics.get('word_count')}")
+    print(f"📈 مؤشر الصعوبة (Flesch): {analytics.get('flesch_score')}")
+```
+
+---
+
+## 🏁 الخلاصة الهندسية والترخيص | Final Takeaways & License
+
+<div align="right" dir="rtl">
+
+يهدف هذا المشروع إلى تقديم أكثر من مجرد كود؛ إنه نموذج حي لهندسة البيانات الاحترافية (Production-Grade Data Engineering):
+
+* ⚖️ **التزامن المهذب (Polite Concurrency):** تم ضبط `max_workers=10` مع تأخيرات عشوائية (Jitter) لضمان سحب البيانات دون التسبب في حظر الخوادم أو انتهاك سياسات `robots.txt`.
+* 🧩 **جاهزية التوسع (Enterprise Scalability):** الهيكلية المفصولة (Decoupled Modules) تسمح بتغليف المشروع باستخدام `Docker` أو نشره كـ Microservice مع FastAPI دون تعديل النواة.
+* 📜 **الترخيص:** جميع مكونات هذا النظام مفتوحة المصدر بالكامل وتندرج تحت رخصة **MIT License**، مما يمنحك الحرية الكاملة للاستخدام التجاري والأكاديمي.
+
+> 💡 **نصيحة الخبير:** لضمان نجاح تجربة التشغيل، تأكد من أن ملف `requirements.txt` يحتوي على إصدارات محددة (مثل `torch==2.0.1`) لتجنب أي تعارض مستقبلي. كما يُنصح بتشغيل الأمر `python src/app.py` مباشرة بعد التثبيت لاختبار الواجهة قبل الغوص في الكود البرمجي.
+
+</div>
+
 🛠️ Technology Stack
 Core Language: Python 3.10+
 
