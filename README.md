@@ -186,3 +186,65 @@ if articles:
 ```
 
 ---
+---
+
+## 🔮 التطلعات والتكامل المستقبلي | Future Roadmap
+
+<div align="right" dir="rtl">
+
+نسعى لتوسيع قدرات المشروع وتحويله إلى بيئة عمل متكاملة. الميزات الهندسية المخطط لها:
+
+* 🧪 **التغطية البرمجية (Unit Testing):** بناء اختبارات شاملة باستخدام `pytest` لوحدات السحب (`scraper`)، التنظيف (`preprocessor`)، والهندسة (`feature_extractor`).
+* ⚙️ **أتمتة العمليات (CI/CD):** إعداد مسارات `GitHub Actions` لتشغيل الفحوصات الآلية (Linting & Tests) تلقائياً مع كل طلب دمج (Pull Request).
+* 🐳 **الحاويات (Containerization):** توفير `Dockerfile` و `docker-compose.yml` لتبسيط عزل بيئة العمل ونشرها بضغطة زر على أي خادم سحابي.
+
+</div>
+
+---
+
+## 🤝 المساهمة | Contributing
+
+<div align="right" dir="rtl">
+
+نرحب بجميع المساهمات التقنية لفتح آفاق جديدة للمشروع! مجالات المساهمة المفتوحة حالياً:
+
+* 🌐 **توسيع النطاق:** إضافة مصادر مواقع إخبارية عربية جديدة إلى قائمة خريطة الموقع (Sitemaps).
+* 🛡️ **هندسة الجودة:** كتابة اختبارات وحدة إضافية لرفع نسبة التغطية البرمجية (Code Coverage).
+* 🎨 **تطوير الواجهة:** تحسين واجهة `Gradio` وإضافة خيارات تصنيفية أو تحليلات مرئية (Data Viz) للمستخدمين.
+
+يُرجى فتح تذكرة (Issue) لمناقشة التغييرات الجوهرية، أو تقديم طلب دمج (Pull Request) مع وصف واضح للتحسينات المضافة.
+
+</div>
+
+---
+
+## 📜 الترخيص | License
+
+<div align="right" dir="rtl">
+
+هذا المشروع مفتوح المصدر ومتاح بالكامل بموجب رخصة **MIT License**. يُسمح بالاستخدام التجاري، التعديل، والتوزيع بحرية مطلقة. يُرجى مراجعة ملف `LICENSE` المرفق في المستودع للاطلاع على التفاصيل القانونية.
+
+</div>
+---
+
+<br>
+<hr>
+
+<div align="center" dir="rtl">
+  <b>تمت الهندسة والتطوير بشغف بواسطة <a href="https://github.com/Alhareith">المهندس الحارث (Eng. Alhareith)</a></b><br>
+  <i>Full-Stack AI & Data Engineering</i><br><br>
+
+  <a href="https://github.com/Alhareith">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=flat&logo=github&logoColor=white" alt="GitHub">
+  </a>
+  <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+  <a href="mailto:YOUR_EMAIL@example.com">
+    <img src="https://img.shields.io/badge/Email-Contact_Me-D14836?style=flat&logo=gmail&logoColor=white" alt="Email">
+  </a>
+  
+  <br><br>
+  <a href="#-arabic-news-scraper--nlp-pipeline">⬆ العودة إلى أعلى الصفحة (Back to Top) ⬆</a>
+</div>
+
