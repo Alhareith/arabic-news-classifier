@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🤖 Multi-Threaded Arabic News Scraper & NLP Feature Extractor
 
 An optimized, production-ready Python data pipeline built to concurrently crawl Arabic news articles via XML Sitemaps, perform tailored NLP preprocessing, and compute text readability analytics. 
