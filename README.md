@@ -92,16 +92,17 @@
 
 ```mermaid
 graph LR
-    A[(Sitemap XML)] -->|Concurrent Fetch| B(Scraper<br/>scraper.py)
-    B -->|Raw Extracted Data| C{Preprocessor<br/>preprocessor.py}
-    C -->|Sanitized Text| D(Feature Engineering<br/>feature_extractor.py)
-    D -->|Text & Structural Metrics| E((CAMeLBERT Model<br/>Transformers))
-    E -->|Real-time Inference| F[Gradio UI<br/>app.py]
+    A[(Sitemap XML)] -->|Concurrent Fetch| B(Scraper: scraper.py)
+    B -->|Raw Extracted Data| C{Preprocessor: preprocessor.py}
+    C -->|Sanitized Text| D(Features: feature_extractor.py)
+    D -->|Text & Metrics| E((CAMeLBERT Model))
+    E -->|Real-time Inference| F[Gradio UI: app.py]
 
     style A fill:#e1e4e8,stroke:#333
     style C fill:#dfd,stroke:#333
     style E fill:#79c0ff,stroke:#333
     style F fill:#ff9900,stroke:#333,color:#fff
+
 ```
 
 
