@@ -2,28 +2,16 @@
 
 ![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![Framework](https://img.shields.io/badge/Framework-PyTorch%20%7C%20Transformers-red?logo=pytorch&logoColor=white)
-![Concurrency](https://img.shields.io/badge/Concurrency-ThreadPoolExecutor-brightgreen?logo=python&logoColor=white)
-![Interface](https://img.shields.io/badge/UI-Gradio-orange?logo=huggingface&logoColor=white)
-![Deployment](https://img.shields.io/badge/Deployment-HuggingFace%20Spaces-ffcc00?logo=huggingface&logoColor=black)
-![Data Pipeline](https://img.shields.io/badge/Data%20Pipeline-Sitemap%20Parsing%20%7C%20ETL-blueviolet)
+![Data Pipeline](https://img.shields.io/badge/Pipeline-Concurrent--Futures-orange?logo=apache-airflow&logoColor=white)
+![Interface](https://img.shields.io/badge/UI-Gradio%20v6-ff5500?logo=interfaces&logoColor=white)
+![Model Hub](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces%20%26%20Hub-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-**An end-to-end, production-grade data engineering pipeline** that orchestrates concurrent crawling of Arabic news sitemaps, performs deterministic JSON-LD metadata isolation, executes rigorous text sanitation, and serves a fine-tuned `CAMeLBERT` Transformer model for real-time multi-class news classification.
+An optimized, production-ready Python data engineering pipeline built to concurrently crawl Arabic news articles via XML Sitemaps, isolate metadata through structural JSON-LD extraction, execute tailored NLP sanitization, and serve a fine-tuned Transformer model via a live interface.
+
+> 🌐 **Live Production Demo:** Experience the fine-tuned `CAMeLBERT` news classifier in action. Test the model using automated example blocks directly on [Hugging Face Spaces 🚀](https://huggingface.co/spaces/Alhareth/arabic-news-classifier).
 
 ---
-
-### 🔍 Core Engineering Pillars (Why This Pipeline Stands Out)
-
-| Engineering Dimension | Implementation Strategy |
-| :--- | :--- |
-| **🚀 High-Throughput Concurrency** | Leveraged `ThreadPoolExecutor` with adaptive jitter delays to maximize request throughput while maintaining polite crawling ethics and avoiding IP blacklisting. |
-| **🧩 Structural Data Integrity** | Engineered robust regex patterns to extract embedded JSON-LD metadata, ensuring deterministic isolation of article bodies from complex DOM trees and inline JavaScript blocks. |
-| **⚙️ Production-Ready Modularity** | Designed the pipeline as a decoupled, importable Python package (`src/`), allowing seamless integration into larger backend systems, orchestrated workflows, or API endpoints. |
-| **📊 Self-Supervised Model Evolution** | Scaled the training dataset from 3,000 to **41,000+** articles using a pseudo-labeling strategy, boosting F1-Macro accuracy to **82.33%** without manual annotation overhead. |
-
----
-
-> 🌐 **Live Interactive Demo:** Instantly test the fine-tuned classifier with automated sample articles or your own custom Arabic text. Explore the model's confidence scores across political, economic, sports, and tech categories directly on [**Hugging Face Spaces** 🚀](https://huggingface.co/spaces/Alhareth/arabic-news-classifier).
 
 ## 🚀 Architectural & Engineering Highlights
 
