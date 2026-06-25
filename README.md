@@ -1,10 +1,11 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=1:2F81A7,100:0D1117&height=140&section=header"/>
+
 <h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
 
 <p align="center">
   <strong>نظام متكامل لاستخراج وتصنيف الأخبار العربية باستخدام معالجة اللغات الطبيعية ونماذج الـ Transformers</strong>
-</p>  
-   
+</p>
+
 <p align="center">
   <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
     <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-HuggingFace%20Spaces-ff5500?style=flat-for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
@@ -26,7 +27,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat" alt="License">
 </p>
 
---- 
+---
 
 ## ⚡ لمحة سريعة | Overview
 
@@ -40,52 +41,47 @@
   <tbody>
     <tr>
       <td><b>النموذج اللغوي (Model)</b></td>
-      <td>نموذج لغوي متطور ومُعدَّل لمهام التصنيف متعدد الفئات (<code>CAMeLBERT</code>)</td>
+      <td>نموذج CAMeLBERT مخصص للتصنيف متعدد الفئات (Multi-class)</td>
     </tr>
     <tr>
       <td><b>الأداء (Performance)</b></td>
-      <td>دقة إجمالية تصل إلى <b>82.33%</b> بمقياس مكافئ قدره <b>81.56%</b> (<code>F1-Macro</code>)</td>
+      <td>دقة إجمالية تصل إلى <b>82.33%</b> و<b>F1-Macro = 81.56%</b> (اعتماداً على مجموعة التقييم)</td>
     </tr>
     <tr>
       <td><b>حجم البيانات (Dataset)</b></td>
-      <td><b>41,435</b> مقالة إخبارية عربية جُمعت آلياً وخضعت لعمليات تنظيف مكثفة</td>
+      <td><b>41,435</b> مقالة إخبارية عربية (Golden + Silver) بعد تنظيف وتجهيز مكثف</td>
     </tr>
     <tr>
       <td><b>البنية والتشغيل (Infrastructure)</b></td>
-      <td>خط إنتاج بيانات متزامن وعالي الأداء مدمج مع واجهة مستخدم حية عبر <code>Gradio</code></td>
+      <td>خط إنتاج بيانات متزامن عالي الأداء مع واجهة Gradio للتجربة الحيّة</td>
     </tr>
     <tr>
       <td><b>الترخيص (License)</b></td>
-      <td>رخصة <code>MIT</code> مفتوحة المصدر ومتاحة للاستخدام والتطوير الحر</td>
+      <td>MIT — حر للاستخدام والتعديل والتوزيع</td>
     </tr>
   </tbody>
 </table>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br clear="both">
 
-<div align="right" dir="rtl">
+> 🎯 الهدف: بناء خط إنتاج بيانات قابل للتوسع لاستخراج، تنظيف، توصيف، وتصنيف الأخبار العربية بدقّة عالية.
 
-> **🎯 الهدف الاستراتيجي:** بناء خط إنتاج بيانات (Data Pipeline) آمن وقابل للتوسع، يدمج بين تقنيات كشط البيانات عالي الأداء وممارسات معالجة النصوص العربية (Arabic NLP) لخدمة تطبيقات الذكاء الاصطناعي محلياً وعالمياً.
-
-</div>
-
+---
 
 ## 🏗️ البنية المعمارية | Architecture
 
-<div align="right" dir="rtl">
-
-يتميز خط الإنتاج بتصميم هندسي منفصل (Decoupled Pipeline) يضمن الاستقرار، سرعة المعالجة، والقابلية للتوسع:
+يعمل المشروع على مبادئ Clean Architecture وModularity لتسهيل الصيانة والتوسيع:
 
 | الطبقة | المكون | الوصف التقني |
-|:---|:---|:---|
-| **الاستخراج** | `scraper.py` | معالجة متزامنة عبر `ThreadPoolExecutor` (10 وحدات) مع تأخير عشوائي لتجنب حظر الـ IP |
-| **التنقية** | `preprocessor.py` | استخراج هيكلي ذكي من `JSON-LD` + تنظيف نصوص عربية بـ RegEx مخصص |
-| **الهندسة** | `feature_extractor.py` | مقاييس لسانية (Flesch-Kincaid مُعَرَّب) + إحصائيات توكنز عبر NLTK |
-| **التهيئة** | `config.py` | إعدادات مركزية + تسجيل موحد + معالجة أخطاء شاملة |
+|---:|:---|:---|
+| الاستخراج | `src/scraper.py` | جلب عناوين ومقالات من sitemaps و صفحات المقالات باستخدام ThreadPoolExecutor مع jitter و retries |
+| التنقية | `src/preprocessor.py` | استخراج JSON-LD، إزالة الإعلانات، تنظيف النص العربي، وتصحيح التشفير |
+| الهندسة | `src/feature_extractor.py` | حساب مؤشرات لسانية، إحصائيات كلمات/توكنز، وميزات قابلة للاستخدام مع النموذج |
+| العرض/التخزين | `src/app.py` | واجهة Gradio للعرض وفي نفس الوقت نقطة لنشر النموذج على HuggingFace Spaces |
+| التهيئة | `src/config.py` | إعدادات مركزية وإدارة السجلات (logging)
 
-</div>
 
-### 🔄 مخطط تدفق البيانات الأساسي (Core Data Flow)
+### 🔄 مخطط تدفق البيانات (Core Data Flow)
 
 ```mermaid
 graph LR
@@ -94,150 +90,125 @@ graph LR
     C -->|Sanitized Text| D(Features: feature_extractor.py)
     D -->|Text & Metrics| E((CAMeLBERT Model))
     E -->|Real-time Inference| F[Gradio UI: app.py]
-
-    style A fill:#e1e4e8,stroke:#333
-    style C fill:#dfd,stroke:#333
-    style E fill:#79c0ff,stroke:#333
-    style F fill:#ff9900,stroke:#333,color:#fff
-
 ```
-## 📈 تطور النموذج والمقاييس | Model Evolution & Fine-Tuning
 
-<div align="right" dir="rtl">
+---
 
-تم تدريب نموذج `CAMeLBERT` لتصنيف متعدد الفئات بمنهجية **التدريب الذاتي (Self-Training / Pseudo-Labeling)**، مما ضاعف البيانات آلياً من 3,000 إلى **41,435 مقالة** دون توسيم يدوي مكلف:
+## 📈 تطور النموذج والتدريب | Model Evolution & Fine-Tuning
+
+- اعتمدنا على CAMeLBERT كأساس وتم تكييفه عبر Fine-tuning على مزيج من بيانات Golden اليدوية وSilver المولدة تلقائياً (Pseudo-Labeling).
+- منهجية Self-Training مكنت من توسيع مجموعة التدريبات بشكل آمن مع فلاترة النتائج منخفضة الثقة.
 
 | الإصدار | حجم البيانات | المنهجية | F1-Macro | الدقة |
-|:---|:---|:---|:---:|:---:|
-| **v1** *(Baseline)* | 3,000 مقالة *Golden* | توسيم يدوي لخط الأساس | — | — |
-| **v2** *(Current ✅)* | **41,435** مقالة *Silver + Golden* | دمج الذهبية مع بيانات فضية (ثقة > 75%)، استبعاد ~18% من التصنيفات الأولية | **81.56%** | **82.33%** |
+|---:|---:|:---|:---:|:---:|
+| v1 (Baseline) | 3,000 مقالة (Golden) | تدريب يدوي | — | — |
+| v2 (Current) ✅ | 41,435 مقالة (Golden + Silver) | Fine-tuning + Self-Training | 0.8156 | 0.8233 |
 
-### 📊 تحليل الأداء حسب الفئة
+### أداء حسب الفئة (مثال)
 
 | الفئة | الدقة | الاستدعاء | F1 |
-|:---|:---:|:---:|:---:|
-| 🏛️ سياسة | 0.86 | 0.84 | **0.85** |
-| 📈 اقتصاد | 0.82 | 0.79 | **0.80** |
-| ⚽ رياضة | 0.91 | 0.93 | **0.92** |
-| 💻 تكنولوجيا | 0.78 | 0.76 | **0.77** |
-| 🩺 صحة | 0.80 | 0.81 | **0.80** |
+|---|---:|---:|---:|
+| سياسة | 0.86 | 0.84 | 0.85 |
+| اقتصاد | 0.82 | 0.79 | 0.80 |
+| رياضة | 0.91 | 0.93 | 0.92 |
+| تكنولوجيا | 0.78 | 0.76 | 0.77 |
+| صحة | 0.80 | 0.81 | 0.80 |
 
-> 🔍 **الملاحظة التحليلية:** الفئات التخصصية (تكنولوجيا) أظهرت تحديات أكبر بسبب تنوع المصطلحات — فرصة تحسين مستقبلية عبر زيادة بيانات هذه الفئة.
-
-</div>
+> ملاحظة: يمكن تحسين فئات محددة عبر مزيد من البيانات المهيكلة أو تقنيات الـ domain adaptation.
 
 ---
 
-> 💡 **لماذا F1-Macro؟**
->
-> <div align="right" dir="rtl">
->
-> الفئات الإخبارية غير متوازنة. `F1-Macro` يُقيّم جميع الفئات بالتساوي — لا الفئات المهيمنة فقط — مما يضمن تقييماً عادلاً لقدرة النموذج على فهم جميع المجالات.
->
-> </div>
+## 📁 بنية المستودع | Repository Structure
 
----
-
-
-
-## 📁 Repository Blueprint
-## 📁 الهيكلية المعمارية للمشروع | Repository Blueprint
-
-<div align="right" dir="rtl">
-
-صُمم هذا المستودع بهندسة **الكود النظيف (Clean Architecture)** ليُعامَل كحزمة بايثون قابلة للاستيراد (Installable Package)، مفصولة تماماً عن بيئات التجارب (Notebooks) والبيانات الضخمة:
-
-</div>
-
-```text
+```
 arabic-news-classifier/
-├── 📦 src/                         # ❖ النواة الهندسية (Core Engine)
-│   ├── 🖥️ app.py                   # واجهة Gradio التفاعلية (متصلة بـ Hugging Face Hub)
-│   ├── ⚙️ config.py                # الإعدادات المركزية ونظام الـ Logging الهيكلي
-│   ├── 🕸️ scraper.py               # محرك السحب المتزامن (ThreadPoolExecutor + Jitter)
-│   ├── 🧹 preprocessor.py          # خوارزميات التنقية واستخراج JSON-LD الذكي
-│   └── 📐 feature_extractor.py     # استخراج الخصائص اللسانية (NLP Metrics & Readability)
-│
-├── 📓 notebooks/                   # سجلات التطوير وتجارب EDA (تحليل استكشافي)
-├── 💾 data/                        # بيئة تخزين البيانات (مستثناة من Git للحفاظ على الحجم)
-├── 📋 requirements.txt             # الاعتماديات البرمجية (مثبتة بدقة بالإصدارات)
-└── 📄 README.md                    # التوثيق المعماري الشامل (هذا الملف)
+├── src/                         # النواة: كود المشروع
+│   ├── app.py                   # واجهة Gradio و API للخدمة
+│   ├── config.py                # إعدادات وسجلات
+│   ├── scraper.py               # محرك السحب المتزامن
+│   ├── preprocessor.py          # تنظيف واستخراج نصوص المقالات
+│   └── feature_extractor.py     # استخراج مقاييس لغوية وميزات
+├── notebooks/                   # تجارب EDA ونتائج التدريب
+├── data/                        # بيانات (مستبعدة من Git)
+├── requirements.txt             # الاعتماديات
+└── README.md
 ```
 
 ---
-## ⚡ التشغيل الفوري والإعداد | Zero-Friction Setup
 
-<div align="right" dir="rtl">
+## ⚡ التشغيل السريع | Quick Start
 
-لن تحتاج لأكثر من **دقيقتين** لتشغيل المشروع محلياً. اتبع التسلسل الذهبي التالي (تم استخدام بيئة افتراضية للحفاظ على استقرار الحزم):
+اتبع الخطوات التالية لتشغيل المشروع محلياً:
 
-</div>
-
-### 🐍 1. استنساخ وتهيئة البيئة (Environment Initialization)
+1. استنساخ المستودع وتهيئة البيئة
 
 ```bash
-# استنساخ المستودع
 git clone https://github.com/Alhareith/arabic-news-classifier.git
 cd arabic-news-classifier
-
-# إنشاء وتفعيل بيئة افتراضية (أفضل ممارسة هندسية)
 python -m venv venv
-source venv/bin/activate   # لنظام Linux / Mac
-# .\venv\Scripts\activate  # لنظام Windows (CMD)
+source venv/bin/activate   # Linux / macOS
+# .\\venv\\Scripts\\activate  # Windows (CMD / PowerShell)
 
-# تثبيت جميع الاعتماديات دفعة واحدة
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 🎯 2. سيناريوهات التشغيل العملية (Run Scenarios)
+2. تشغيل واجهة Gradio محلياً
 
-<div align="right" dir="rtl">
+```bash
+python src/app.py
+# ثم افتح الرابط الذي يعرضه Gradio (عادة http://127.0.0.1:7860)
+```
 
-اختر السيناريو المناسب لاحتياجك:
+3. اختبار سريع عبر سكربت تجريبي
 
-</div>
-
-| المشهد | الأمر / الكود | النتيجة المتوقعة |
-| :--- | :--- | :--- |
-| **🖥️ تشغيل الواجهة التفاعلية (Gradio)** | `python src/app.py` | فتح رابط محلي (مثل `http://127.0.0.1:7860`) لاختبار التصنيف الحي للنموذج. |
-| **📡 الاستخدام البرمجي (API Integration)** | `python -c "from src.scraper import ..."` | استدعاء دوال السحب والتحليل داخل أنظمة خلفية (Backend) مباشرة. |
-| **🧪 تجربة سريعة (5 مقالات فقط)** | انظر الكود أدناه | سحب 5 مقالات، تنظيفها، وعرض التحليل اللغوي فوراً دون عناء. |
-
----
-
-### 💻 3. كود تجريبي جاهز للنسخ (Copy-Paste Ready)
-
-<div align="right" dir="rtl">
-
-انسخ هذا المقتطف البرمجي في ملف `test_run.py` لتجربة خط الأنابيب الكامل (سحب + تنظيف + تحليل) فوراً:
-
-</div>
+انسخ الكود التالي إلى ملف `test_run.py` ثم شغّله:
 
 ```python
 # test_run.py
 from src.scraper import fetch_sitemap_urls, run_concurrent_pipeline
 from src.feature_extractor import compute_text_features
 
-# 1. جلب أحدث 5 روابط مقالات من موقع "سبق" الإخباري
 print("⏳ جاري جلب الروابط...")
 urls = fetch_sitemap_urls("https://sabq.org/sitemap.xml")[:5]
 
-# 2. تنفيذ السحب المتزامن متعدد الخيوط
 print(f"⏳ جاري سحب {len(urls)} مقالة...")
 articles = run_concurrent_pipeline(urls)
 
-# 3. استخراج الميزات اللغوية لأول مقالة
 if articles:
     first_article = articles[0]
-    analytics = compute_text_features(first_article["cleaned_text"])
-    
-    print("\n✅ تم السحب بنجاح!")
+    analytics = compute_text_features(first_article.get("cleaned_text", ""))
+
+    print("\\n✅ تم السحب بنجاح!")
     print(f"📰 العنوان: {first_article.get('title', 'بدون عنوان')}")
     print(f"📊 عدد الكلمات: {analytics.get('word_count', 0)}")
     print(f"📈 مؤشر الصعوبة (Flesch): {analytics.get('flesch_score', 0)}")
 ```
----
-# 1. Fetch historical article sub-sitemaps dynamically
-target_urls = fetch_sitemap_urls("[https://sabq.org/sitemap.xml](https://sabq.org/sitemap.xml)")[:20]
 
+---
+
+## 🧪 اختبارات وتكامل مستقبلي (مقترح)
+
+- إضافة اختبارات وحدة (pytest) لـ scraper, preprocessor, feature_extractor.
+- إعداد GitHub Actions لتشغيل lint واختبارات على كل Pull Request.
+- إضافة Dockerfile و docker-compose لتبسيط النشر.
+
+---
+
+## 🤝 المساهمة
+
+مرحب بالمساهمات! يُرجى فتح Issue أو Pull Request مع وصف واضح للتغيير. اقتراحات المساهمة:
+
+- إضافة مصادر مواقع إخبارية جديدة إلى قائمة الـ sitemaps
+- كتابة اختبارات وحدة وتغطية إضافية
+- تحسين واجهة Gradio وإضافة خيارات تصنيفية
+
+---
+
+## 📜 الترخيص
+
+هذا المشروع مرخّص بموجب رخصة MIT — راجع ملف LICENSE للمزيد من التفاصيل.
+
+---
+
+إذا رغبت أن أقوم أيضاً بإضافة GitHub Actions أو Dockerfile أو كتابة بعض اختبارات الوحدة الآن فأخبرني وسأضيفها في فرع جديد وأفتح PR.
