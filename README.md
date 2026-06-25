@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/github/forks/Alhareth/arabic-news-scraper?style=for-the-badge&color=blue" alt="Forks">
   </a>
 </p>
-
+ 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
