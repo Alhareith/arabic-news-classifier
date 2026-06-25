@@ -1,17 +1,48 @@
-# 🤖 Multi-Threaded Arabic News Scraper & NLP Feature Extractor
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Alhareth/arabic-news-scraper/main/assets/logo.png" alt="Arabic News Classifier" width="180">
+</p>
 
-![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-![Framework](https://img.shields.io/badge/Framework-PyTorch%20%7C%20Transformers-red?logo=pytorch&logoColor=white)
-![Data Pipeline](https://img.shields.io/badge/Pipeline-Concurrent--Futures-orange?logo=apache-airflow&logoColor=white)
-![Interface](https://img.shields.io/badge/UI-Gradio%20v6-ff5500?logo=interfaces&logoColor=white)
-![Model Hub](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces%20%26%20Hub-yellow)
-![License](https://img.shields.io/badge/License-MIT-green)
+<h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
 
-An optimized, production-ready Python data engineering pipeline built to concurrently crawl Arabic news articles via XML Sitemaps, isolate metadata through structural JSON-LD extraction, execute tailored NLP sanitization, and serve a fine-tuned Transformer model via a live interface.
+<p align="center">
+  <strong>نظام استخراج وتصنيف الأخبار العربية باستخدام نماذج لغوية متقدمة</strong>
+</p>
 
-> 🌐 **Live Production Demo:** Experience the fine-tuned `CAMeLBERT` news classifier in action. Test the model using automated example blocks directly on [Hugging Face Spaces 🚀](https://huggingface.co/spaces/Alhareth/arabic-news-classifier).
+<p align="center">
+  <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-HuggingFace_Spaces-ff5500?style=for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
+  </a>
+  <a href="https://github.com/Alhareth/arabic-news-scraper/stargazers">
+    <img src="https://img.shields.io/github/stars/Alhareth/arabic-news-scraper?style=for-the-badge&color=yellow" alt="Stars">
+  </a>
+  <a href="https://github.com/Alhareth/arabic-news-scraper/network/members">
+    <img src="https://img.shields.io/github/forks/Alhareth/arabic-news-scraper?style=for-the-badge&color=blue" alt="Forks">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/Transformers-🤗_HuggingFace-yellow?logo=huggingface&logoColor=white" alt="Transformers">
+  <img src="https://img.shields.io/badge/Concurrency-ThreadPoolExecutor-orange" alt="Concurrency">
+  <img src="https://img.shields.io/badge/UI-Gradio-ff5500?logo=gradio&logoColor=white" alt="Gradio">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+</p>
 
 ---
+
+## ⚡ لمحة سريعة
+
+| الميزة | التفاصيل |
+|:---|:---|
+| **النموذج** | CAMeLBERT مُعدَّل خصيصًا للنصوص العربية |
+| **الأداء** | دقة **82.33%** (F1-Macro: 81.56%) |
+| **حجم البيانات** | 41,435 مقالة عربية |
+| **المنصة** | واجهة تفاعلية مباشرة على Hugging Face Spaces |
+| **الترخيص** | MIT مفتوح المصدر بالكامل |
+
+> **الهدف:** تمكين المطورين والباحثين من استخراج وتصنيف الأخبار العربية تلقائيًا بجودة إنتاجية وقابلية للتوسع.
+
 
 ## 🚀 Architectural & Engineering Highlights
 
