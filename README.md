@@ -1,250 +1,190 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=1:2F81A7,100:0D1117&height=140&section=header"/>
-
-<h1 align="center">🤖 Arabic News Scraper & NLP Pipeline</h1>
-
 <p align="center">
-  <strong>نظام متكامل لاستخراج وتصنيف الأخبار العربية باستخدام معالجة اللغات الطبيعية ونماذج الـ Transformers</strong>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Arabic%20News%20NLP%20Pipeline&fontSize=40&animation=fadeIn&fontAlignY=40"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Production--Ready-success?style=for-the-badge&logo=github" alt="Status">
+  <img src="https://img.shields.io/badge/Architecture-Clean--Modular-blue?style=for-the-badge&logo=architecture" alt="Architecture">
+  <img src="https://img.shields.io/badge/NLP-Transformers-yellow?style=for-the-badge&logo=huggingface" alt="NLP">
 </p>
 
 <p align="center">
-  <a href="https://huggingface.co/spaces/Alhareth/arabic-news-classifier">
-    <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-HuggingFace%20Spaces-ff5500?style=flat-for-the-badge&logo=huggingface&logoColor=white" alt="Live Demo">
-  </a>
-  <a href="https://github.com/Alhareith/arabic-news-classifier/stargazers">
-    <img src="https://img.shields.io/github/stars/Alhareith/arabic-news-classifier?style=flat-for-the-badge&color=yellow&logo=github" alt="Stars">
-  </a>
-  <a href="https://github.com/Alhareith/arabic-news-classifier/network/members">
-    <img src="https://img.shields.io/github/forks/Alhareith/arabic-news-classifier?style=flat-for-the-badge&color=blue&logo=git" alt="Forks">
-  </a>
+  <b>End-to-End System</b> لاستخراج وتصنيف الأخبار العربية باستخدام <b>Advanced NLP</b> ونماذج <b>State-of-the-Art Transformers</b>
 </p>
- 
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white" alt="PyTorch">
-  <img src="https://img.shields.io/badge/Transformers-%F0%9F%A4%97%20HuggingFace-yellow?style=flat" alt="Transformers">
-  <img src="https://img.shields.io/badge/Concurrency-ThreadPoolExecutor-orange?style=flat&logo=cpu" alt="Concurrency">
-  <img src="https://img.shields.io/badge/UI-Gradio%20v6-ff5500?style=flat&logo=gradio&logoColor=white" alt="Gradio">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=flat" alt="License">
+  <a href="#-core-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-roadmap">Roadmap</a>
 </p>
 
 ---
 
-## ⚡ لمحة سريعة | Overview
+## 🚀 Overview | نظرة عامة
 
-<table align="right" dir="rtl" width="100%">
-  <thead>
-    <tr>
-      <th align="right" width="25%">الميزة</th>
-      <th align="right" width="75%">التفاصيل التقنية</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>النموذج اللغوي (Model)</b></td>
-      <td>نموذج CAMeLBERT مخصص للتصنيف متعدد الفئات (Multi-class)</td>
-    </tr>
-    <tr>
-      <td><b>الأداء (Performance)</b></td>
-      <td>دقة إجمالية تصل إلى <b>82.33%</b> و<b>F1-Macro = 81.56%</b> (اعتماداً على مجموعة التقييم)</td>
-    </tr>
-    <tr>
-      <td><b>حجم البيانات (Dataset)</b></td>
-      <td><b>41,435</b> مقالة إخبارية عربية (Golden + Silver) بعد تنظيف وتجهيز مكثف</td>
-    </tr>
-    <tr>
-      <td><b>البنية والتشغيل (Infrastructure)</b></td>
-      <td>خط إنتاج بيانات متزامن عالي الأداء مع واجهة Gradio للتجربة الحيّة</td>
-    </tr>
-    <tr>
-      <td><b>الترخيص (License)</b></td>
-      <td>MIT — حر للاستخدام والتعديل والتوزيع</td>
-    </tr>
-  </tbody>
+هذا المشروع ليس مجرد Scraper عادي، بل هو **Complete Data Pipeline** مصمم للتعامل مع ضخامة البيانات الإخبارية العربية. نستخدم فيه **Concurrent Scraping** لضمان السرعة، متبوعاً بمرحلة **Preprocessing** مكثفة لتنظيف النصوص، وصولاً إلى **Real-time Inference** باستخدام أقوى نماذج اللغة العربية.
+
+---
+
+## ✨ Core Features | الميزات الجوهرية
+
+<table width="100%">
+  <tr>
+    <td width="50%">
+      <h3>🔍 Smart Scraping</h3>
+      <ul>
+        <li><b>Multi-threaded Execution</b> باستخدام <code>ThreadPoolExecutor</code>.</li>
+        <li>دعم الـ <b>Sitemap XML Parsing</b> لاستكشاف الروابط تلقائياً.</li>
+        <li>نظام <b>Robust Retry Mechanism</b> مع Jitter لتجنب الحظر.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🧠 Deep Learning NLP</h3>
+      <ul>
+        <li><b>Fine-tuned CAMeLBERT</b> للحصول على أدق تصنيف للفئات.</li>
+        <li>دعم الـ <b>Multi-class Classification</b> (سياسة، اقتصاد، رياضة...).</li>
+        <li>معالجة <b>Self-Training</b> لزيادة دقة الـ Silver Data.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>🧹 Advanced Preprocessing</h3>
+      <ul>
+        <li>استخراج المحتوى النظيف وإزالة الـ <b>Boilerplate</b> والإعلانات.</li>
+        <li><b>Arabic Text Normalization</b> (توحيد الهمزات، إزالة التشكيل).</li>
+        <li>استخراج الـ <b>Metadata</b> والـ JSON-LD من الصفحات.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>📊 Analytics & UI</h3>
+      <ul>
+        <li><b>Feature Extraction</b> لحساب الـ Word Count و Readability Scores.</li>
+        <li>واجهة <b>Gradio Web UI</b> تفاعلية وسهلة الاستخدام.</li>
+        <li>جاهز للـ <b>Deployment</b> الفوري على HuggingFace Spaces.</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
-<br clear="both">
+---
 
-> 🎯 الهدف: بناء خط إنتاج بيانات قابل للتوسع لاستخراج، تنظيف، توصيف، وتصنيف الأخبار العربية بدقّة عالية.
+## 🛠 Tech Stack | المزيج التقني
+
+| Category | Tools & Technologies |
+| :--- | :--- |
+| **Language** | <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white"/> |
+| **Deep Learning** | <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white"/> <img src="https://img.shields.io/badge/Transformers-HuggingFace-yellow?style=flat-square&logo=huggingface&logoColor=black"/> |
+| **Data Scraping** | `BeautifulSoup4`, `Requests`, `Concurrent.futures` |
+| **Web Interface** | <img src="https://img.shields.io/badge/Gradio-v6-ff5500?style=flat-square&logo=gradio&logoColor=white"/> |
+| **Architecture** | Clean Architecture, Modular Design |
 
 ---
 
-## 🏗️ البنية المعمارية | Architecture
+## 🏗 Architecture | البنية المعمارية
 
-يعمل المشروع على مبادئ Clean Architecture وModularity لتسهيل الصيانة والتوسيع:
-
-| الطبقة | المكون | الوصف التقني |
-|---:|:---|:---|
-| الاستخراج | `src/scraper.py` | جلب عناوين ومقالات من sitemaps و صفحات المقالات باستخدام ThreadPoolExecutor مع jitter و retries |
-| التنقية | `src/preprocessor.py` | استخراج JSON-LD، إزالة الإعلانات، تنظيف النص العربي، وتصحيح التشفير |
-| الهندسة | `src/feature_extractor.py` | حساب مؤشرات لسانية، إحصائيات كلمات/توكنز، وميزات قابلة للاستخدام مع النموذج |
-| العرض/التخزين | `src/app.py` | واجهة Gradio للعرض وفي نفس الوقت نقطة لنشر النموذج على HuggingFace Spaces |
-| التهيئة | `src/config.py` | إعدادات مركزية وإدارة السجلات (logging)
-
-
-### 🔄 مخطط تدفق البيانات (Core Data Flow)
+### 🔄 Core Data Flow
+يتبع المشروع مساراً هندسياً دقيقاً لضمان جودة البيانات (**Data Integrity**):
 
 ```mermaid
-graph LR
-    A[(Sitemap XML)] -->|Concurrent Fetch| B(Scraper: scraper.py)
-    B -->|Raw Extracted Data| C{Preprocessor: preprocessor.py}
-    C -->|Sanitized Text| D(Features: feature_extractor.py)
-    D -->|Text & Metrics| E((CAMeLBERT Model))
-    E -->|Real-time Inference| F[Gradio UI: app.py]
+graph TD
+    subgraph "Ingestion Layer"
+    A[Sitemap XML] --> B[Concurrent Scraper]
+    end
+    
+    subgraph "Processing Layer"
+    B --> C[Text Preprocessor]
+    C --> D[Feature Extractor]
+    end
+    
+    subgraph "Inference Layer"
+    D --> E[CAMeLBERT Model]
+    E --> F[Gradio Dashboard]
+    end
+    
+    style E fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---
 
-## 📈 تطور النموذج والتدريب | Model Evolution & Fine-Tuning
+## 📈 Model Performance | أداء النموذج
 
-- اعتمدنا على CAMeLBERT كأساس وتم تكييفه عبر Fine-tuning على مزيج من بيانات Golden اليدوية وSilver المولدة تلقائياً (Pseudo-Labeling).
-- منهجية Self-Training مكنت من توسيع مجموعة التدريبات بشكل آمن مع فلاترة النتائج منخفضة الثقة.
-
-| الإصدار | حجم البيانات | المنهجية | F1-Macro | الدقة |
-|---:|---:|:---|:---:|:---:|
-| v1 (Baseline) | 3,000 مقالة (Golden) | تدريب يدوي | — | — |
-| v2 (Current) ✅ | 41,435 مقالة (Golden + Silver) | Fine-tuning + Self-Training | 0.8156 | 0.8233 |
-
-### أداء حسب الفئة (مثال)
-
-| الفئة | الدقة | الاستدعاء | F1 |
-|---|---:|---:|---:|
-| سياسة | 0.86 | 0.84 | 0.85 |
-| اقتصاد | 0.82 | 0.79 | 0.80 |
-| رياضة | 0.91 | 0.93 | 0.92 |
-| تكنولوجيا | 0.78 | 0.76 | 0.77 |
-| صحة | 0.80 | 0.81 | 0.80 |
-
-> ملاحظة: يمكن تحسين فئات محددة عبر مزيد من البيانات المهيكلة أو تقنيات الـ domain adaptation.
+| Metric | Score | Status |
+| :--- | :--- | :--- |
+| **Accuracy** | `82.33%` | ✅ Stable |
+| **F1-Macro** | `81.56%` | ✅ Optimized |
+| **Dataset Size** | `41,435` | 📚 Golden + Silver |
 
 ---
 
-## 📁 بنية المستودع | Repository Structure
+## 📁 Repository Structure | هيكلية المشروع
 
-```
+```bash
 arabic-news-classifier/
-├── src/                         # النواة: كود المشروع
-│   ├── app.py                   # واجهة Gradio و API للخدمة
-│   ├── config.py                # إعدادات وسجلات
-│   ├── scraper.py               # محرك السحب المتزامن
-│   ├── preprocessor.py          # تنظيف واستخراج نصوص المقالات
-│   └── feature_extractor.py     # استخراج مقاييس لغوية وميزات
-├── notebooks/                   # تجارب EDA ونتائج التدريب
-├── data/                        # بيانات (مستبعدة من Git)
-├── requirements.txt             # الاعتماديات
-└── README.md
+├── src/
+│   ├── app.py            # Gradio Interface & Entry Point
+│   ├── scraper.py        # High-performance Scraping Engine
+│   ├── preprocessor.py   # Text Cleaning & Normalization
+│   └── feature_extractor.py # Linguistic Metrics Extraction
+├── notebooks/            # EDA & Model Training Experiments
+└── requirements.txt      # Dependency Management
 ```
 
 ---
 
-## ⚡ التشغيل السريع | Quick Start
+## ⚡ Quick Start | التشغيل السريع
 
-اتبع الخطوات التالية لتشغيل المشروع محلياً:
-
-1. استنساخ المستودع وتهيئة البيئة
-
+### 1️⃣ Environment Setup
+قم بتهيئة الـ **Virtual Environment** وتثبيت الـ **Dependencies**:
 ```bash
 git clone https://github.com/Alhareith/arabic-news-classifier.git
 cd arabic-news-classifier
 python -m venv venv
-source venv/bin/activate   # Linux / macOS
-# .\\venv\\Scripts\\activate  # Windows (CMD / PowerShell)
-
-pip install --upgrade pip
+source venv/bin/activate  # Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-2. تشغيل واجهة Gradio محلياً
-
+### 2️⃣ Run Dashboard
+لتشغيل الـ **Local Web Server** وعرض الواجهة:
 ```bash
 python src/app.py
-# ثم افتح الرابط الذي يعرضه Gradio (عادة http://127.0.0.1:7860)
-```
-
-3. اختبار سريع عبر سكربت تجريبي
- 
-انسخ الكود التالي إلى ملف `test_run.py` ثم شغّله:
-
-```python
-# test_run.py
-from src.scraper import fetch_sitemap_urls, run_concurrent_pipeline
-from src.feature_extractor import compute_text_features
-
-print("⏳ جاري جلب الروابط...")
-urls = fetch_sitemap_urls("https://sabq.org/sitemap.xml")[:5]
-
-print(f"⏳ جاري سحب {len(urls)} مقالة...")
-articles = run_concurrent_pipeline(urls)
-
-if articles:
-    first_article = articles[0]
-    analytics = compute_text_features(first_article.get("cleaned_text", ""))
-
-    print("\\n✅ تم السحب بنجاح!")
-    print(f"📰 العنوان: {first_article.get('title', 'بدون عنوان')}")
-    print(f"📊 عدد الكلمات: {analytics.get('word_count', 0)}")
-    print(f"📈 مؤشر الصعوبة (Flesch): {analytics.get('flesch_score', 0)}")
 ```
 
 ---
----
 
-## 🔮 التطلعات والتكامل المستقبلي | Future Roadmap
+## 🔮 Roadmap | التطلعات المستقبلية
 
-<div align="right" dir="rtl">
-
-نسعى لتوسيع قدرات المشروع وتحويله إلى بيئة عمل متكاملة. الميزات الهندسية المخطط لها:
-
-* 🧪 **التغطية البرمجية (Unit Testing):** بناء اختبارات شاملة باستخدام `pytest` لوحدات السحب (`scraper`)، التنظيف (`preprocessor`)، والهندسة (`feature_extractor`).
-* ⚙️ **أتمتة العمليات (CI/CD):** إعداد مسارات `GitHub Actions` لتشغيل الفحوصات الآلية (Linting & Tests) تلقائياً مع كل طلب دمج (Pull Request).
-* 🐳 **الحاويات (Containerization):** توفير `Dockerfile` و `docker-compose.yml` لتبسيط عزل بيئة العمل ونشرها بضغطة زر على أي خادم سحابي.
-
-</div>
+- [ ] 🧪 **Unit Testing:** تغطية شاملة باستخدام `pytest`.
+- [ ] ⚙️ **CI/CD Pipeline:** أتمتة الاختبارات عبر GitHub Actions.
+- [ ] 🐳 **Dockerization:** توفير `Dockerfile` للنشر السحابي السهل.
+- [ ] 📡 **API Integration:** بناء REST API باستخدام FastAPI.
 
 ---
 
-## 🤝 المساهمة | Contributing
+## 🤝 Contributing | المساهمة
 
-<div align="right" dir="rtl">
-
-نرحب بجميع المساهمات التقنية لفتح آفاق جديدة للمشروع! مجالات المساهمة المفتوحة حالياً:
-
-* 🌐 **توسيع النطاق:** إضافة مصادر مواقع إخبارية عربية جديدة إلى قائمة خريطة الموقع (Sitemaps).
-* 🛡️ **هندسة الجودة:** كتابة اختبارات وحدة إضافية لرفع نسبة التغطية البرمجية (Code Coverage).
-* 🎨 **تطوير الواجهة:** تحسين واجهة `Gradio` وإضافة خيارات تصنيفية أو تحليلات مرئية (Data Viz) للمستخدمين.
-
-يُرجى فتح تذكرة (Issue) لمناقشة التغييرات الجوهرية، أو تقديم طلب دمج (Pull Request) مع وصف واضح للتحسينات المضافة.
-
-</div>
+نحن نرحب بالـ **Pull Requests**! سواء كانت تحسينات في الـ **Scraping Logic** أو إضافة فئات تصنيف جديدة.
+1. Fork المشروع.
+2. Create الـ Feature Branch الخاص بك.
+3. Submit الـ PR للمراجعة.
 
 ---
 
-## 📜 الترخيص | License
+## 📜 License | الترخيص
 
-<div align="right" dir="rtl">
+هذا المشروع مرخص تحت **MIT License** - متاح للاستخدام الحر والتعديل.
 
-هذا المشروع مفتوح المصدر ومتاح بالكامل بموجب رخصة **MIT License**. يُسمح بالاستخدام التجاري، التعديل، والتوزيع بحرية مطلقة. يُرجى مراجعة ملف `LICENSE` المرفق في المستودع للاطلاع على التفاصيل القانونية.
-
-</div>
 ---
 
-<br>
-<hr>
-
-<div align="center" dir="rtl">
-  <b>تمت الهندسة والتطوير بشغف بواسطة <a href="https://github.com/Alhareith">المهندس الحارث (Eng. Alhareith)</a></b><br>
-  <i>Full-Stack AI & Data Engineering</i><br><br>
-
-  <a href="https://github.com/Alhareith">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=flat&logo=github&logoColor=white" alt="GitHub">
-  </a>
-  <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn">
-  </a>
-  <a href="mailto:YOUR_EMAIL@example.com">
-    <img src="https://img.shields.io/badge/Email-Contact_Me-D14836?style=flat&logo=gmail&logoColor=white" alt="Email">
-  </a>
+<div align="center">
+  <h3>Developed with ❤️ by Eng. Alhareith</h3>
+  <p><i>Full-Stack AI & Data Engineering</i></p>
   
-  <br><br>
-  <a href="#-arabic-news-scraper--nlp-pipeline">⬆ العودة إلى أعلى الصفحة (Back to Top) ⬆</a>
+  <a href="https://github.com/Alhareith"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
+  <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn"></a>
+  <a href="mailto:YOUR_EMAIL@example.com"><img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail" alt="Email"></a>
+  
+  <br>
+  <a href="#-arabic-news-scraper--nlp-pipeline"><b>Back to Top ⬆️</b></a>
 </div>
-
